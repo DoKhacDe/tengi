@@ -89,14 +89,14 @@ class MainController extends Controller
         $todo = Todo::find($id);
 
         $data = ['LoggedUserInfo'=>Admin::where('id','=',session('LoggedUser'))->first()];
-        return view('todolist.edit',$data)->with(['id' =>$id, 'todo'=> $todo]);
+        return view('todolist.edit',$data)->with(['id' => $id, 'todo' => $todo]);
     }
     function update(Request $request){
         $request->validate([
             'title'=>'required|max:225'
         ]);
         $updateTodo = Todo::find($request->id);
-        $updateTodo->update(['title' =>$request->title]);
+        $updateTodo->update(['title' => $request->title]);
         return redirect('todolist/index');
     }
     function delete($id){

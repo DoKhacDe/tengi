@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <style>
         .top-left{
@@ -81,7 +80,9 @@
                 <h3>Edit</h3>
                 <form action="/todolist/update" method="post"> 
                     @csrf
-                        <input type="text" name="title" value="{{ $todo->title }}"><input type="submit" value="Add"><br>
+                        <input type="text" name="title" value="{{ $todo->title }}">
+                        <input type="number" name="id" style="display: none;" value="{{ $todo->id }}">
+                        <input type="submit" value="Add"><br>
                         <span class="text-danger">@error('title'){{ $message }} @enderror</span> 
                     </form>
                     <br>
